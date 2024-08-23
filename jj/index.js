@@ -1,21 +1,22 @@
-// game.js
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let carImage = new Image();
+carImage.src = 'https://thumbs.dreamstime.com/b/orange-small-car-top-back-view-isolated-white-background-68689693.jpg';
+
 let car = {
-  x: canvas.width / 2,
+  x: canvas.width / 2 - 50,
   y: canvas.height - 100,
-  width: 50,
-  height: 100,
+  width: 160,
+  height: 150,
   speed: 1
 };
 
 function drawCar() {
-  ctx.fillStyle = 'red';
-  ctx.fillRect(car.x, car.y, car.width, car.height);
+  ctx.drawImage(carImage, car.x, car.y, car.width, car.height);
 }
 
 function update() {
@@ -35,4 +36,7 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-loop();
+// Ensure the car image is loaded before starting the game loop
+carImage.onload = function() {
+  loop();
+}
