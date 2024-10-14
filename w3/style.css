@@ -1,4 +1,10 @@
 .button{
     border-radius: 50px;
-    background-color: bisque;
+    background-color: rgb(223, 164, 93);
+}
+.pp{
+    background-color: rgb(45, 218, 175);
+
+    border-radius: 60px;
+    
 }
